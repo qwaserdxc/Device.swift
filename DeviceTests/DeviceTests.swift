@@ -47,6 +47,15 @@ private extension DeviceType {
         case .iPhoneXSMax: return ["iPhone11,4", "iPhone11,6"]
         case .iPhoneXR: return ["iPhone11,8"]
 
+        case .iPhone11: return ["iPhone12,1"]
+        case .iPhone11Pro: return ["iPhone12,3"]
+        case .iPhone11ProMax: return ["iPhone12,5"]
+        case .iPhoneSEGen2: return ["iPhone12,8"]
+        case .iPhone12Mini: return ["iPhone13,1"]
+        case .iPhone12: return ["iPhone13,2"]
+        case .iPhone12Pro: return ["iPhone13,3"]
+        case .iPhone12ProMax: return ["iPhone13,4"]
+
         case .iPodTouch1G: return ["iPod1,1"]
         case .iPodTouch2G: return ["iPod2,1"]
         case .iPodTouch3G: return ["iPod3,1"]
