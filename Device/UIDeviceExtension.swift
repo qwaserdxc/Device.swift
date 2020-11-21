@@ -90,21 +90,26 @@ public enum DeviceType: String, CaseIterable {
 
     /// The current device type
     public static var current: DeviceType {
-
-        var systemInfo = utsname()
-        uname(&systemInfo)
-
-        let machine = systemInfo.machine
-        let mirror = Mirror(reflecting: machine)
-        var identifier = ""
-
-        for child in mirror.children {
-            if let value = child.value as? Int8, value != 0 {
-                identifier.append(String(UnicodeScalar(UInt8(value))))
+        #if targetEnvironment(simulator)
+            guard let identifier = ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] else {
+                return .unknow(id: String())
             }
-        }
+        #else
+            var systemInfo = utsname()
+            uname(&systemInfo)
 
-        return DeviceType(identifier: identifier)
+            let machine = systemInfo.machine
+            let mirror = Mirror(reflecting: machine)
+            var identifier = ""
+
+            for child in mirror.children {
+                if let value = child.value as? Int8, value != 0 {
+                    identifier.append(String(UnicodeScalar(UInt8(value))))
+                }
+            }
+
+            return DeviceType(identifier: identifier)
+        #endif
     }
 
     // MARK: Variables
