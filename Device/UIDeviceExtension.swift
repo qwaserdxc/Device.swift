@@ -92,8 +92,10 @@ public enum DeviceType: String, CaseIterable {
     public static var current: DeviceType {
         #if targetEnvironment(simulator)
             guard let identifier = ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] else {
-                return .unknow(id: String())
+                return .notAvailable
             }
+            
+            return DeviceType(identifier: identifier)
         #else
             var systemInfo = utsname()
             uname(&systemInfo)
