@@ -308,7 +308,6 @@ private extension DeviceType {
 
 }
 
-
 // MARK: - UIDevice
 
 public extension UIDevice {
