@@ -4,7 +4,6 @@
 //
 //  Created by Johannes Schickling on 7/20/15.
 //
-//
 
 import Foundation
 import UIKit
