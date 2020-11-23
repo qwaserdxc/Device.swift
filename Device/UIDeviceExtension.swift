@@ -301,7 +301,6 @@ private extension DeviceType {
         guard let identifier = ProcessInfo().environment[Constants.simulatorKey] else {
             return .notAvailable
         }
-
         return DeviceType(identifier: identifier)
     }
 
